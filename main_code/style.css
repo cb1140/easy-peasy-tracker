@@ -97,9 +97,13 @@ ul {
   font-family: Helvetica , Arial, sans-serif;
   margin-top: 0;
   font-size: 28px;
+  text-decoration: none !important;
+  padding-left: 0px; 
   
   
 }
+  
+  
 
 li {
   float: left;
@@ -115,13 +119,24 @@ li a, .navbtn {
   margin-top: 0;
   font-size: 28px;
   right:50px;
+  text-decoration: none !important;
+  
   
  
+}
+
+
+
+.calendar {
+  float: right;
 }
 
 li a:hover, .navigation:hover .navbtn {
   background-color: #a3d9e5;
   font-size: 28px;
+  color: white;
+  color: white;
+  text-decoration: none !important;
 }
 
 li.navigation {
@@ -147,7 +162,7 @@ li.navigation {
 .navigation-content a {
   color: white;
   padding: 12px 16px;
-  text-decoration: none;
+  text-decoration: none; 
   display: block;
   text-align: left;
   font-family: Helvetica , Arial, sans-serif;
