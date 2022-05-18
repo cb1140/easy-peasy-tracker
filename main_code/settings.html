@@ -1,0 +1,12 @@
+<!-- Example Storage Script -->
+<script>
+    if (typeof(Storage) !== "undefined") { // Check that the browser supports this script
+      localStorage.setItem("Daniel", "Smith"); // Store under suitable variables
+      document.getElementById("result").innerHTML = localStorage.getItem("lastname");
+       // Retrieve variable from storage 
+    } else {
+      document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+       // Error catch if the script is unavailable, for accessibility 
+    }
+    </script>
+  
