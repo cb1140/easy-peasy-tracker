@@ -1,0 +1,72 @@
+<form>
+    <div class="mb-3">
+      <label for="first-name" class="col-form-label" >
+        <i class="bi bi-file-person-fill"></i> First Name:
+      </label>
+      <input type="text" class="form-control" id="first-name"/>
+    </div>
+    <div class="mb-3">
+      <label for="last-name" class="col-form-label">
+        <i class="bi bi-file-person"></i> Last Name:
+      </label>
+      <input type="text" class="form-control" id="last-name" />
+    </div>
+    <div class="mb-3">
+      <label for="gender" class="col-form-label">
+        <i class="bi bi-gender-trans"></i> Gender:
+      </label>
+      <input type="text" class="form-control" id="gender" />
+    </div>
+    <div class="mb-3">
+      <label for="age" class="col-form-label">
+        <i class="bi bi-calendar-date"></i> Age:
+      </label>
+      <input type="age" class="form-control" id="age" />
+    </div>
+    <div class="mb-3">
+      <fieldset>
+        <label for="ethnicity" class="col-form-label"><i class="bi bi-globe"></i> To which racial or ethnic group do you most identify?</label>
+        <select class="form-control dropdown" id="ethnicity" name="ethnicity">
+          <option value="" selected="selected" disabled="disabled">Select one...</option>
+          <optgroup label="White">
+            <option value="White English">English</option>
+            <option value="White Welsh">Welsh</option>
+            <option value="White Scottish">Scottish</option>
+            <option value="White Northern Irish">Northern Irish</option>
+            <option value="White Irish">Irish</option>
+            <option value="White Gypsy or Irish Traveller">Gypsy or Irish Traveller</option>
+            <option value="White Other">Any other White background</option>
+          </optgroup>
+          <optgroup label="Mixed or Multiple ethnic groups">
+            <option value="Mixed White and Black Caribbean">White and Black Caribbean</option>
+            <option value="Mixed White and Black African">White and Black African</option>
+            <option value="Mixed White Other">Any other Mixed or Multiple background</option>
+          </optgroup>
+          <optgroup label="Asian">
+            <option value="Asian Indian">Indian</option>
+            <option value="Asian Pakistani">Pakistani</option>
+            <option value="Asian Bangladeshi">Bangladeshi</option>
+            <option value="Asian Chinese">Chinese</option>
+            <option value="Asian Other">Any other Asian background</option>
+          </optgroup>
+          <optgroup label="Black">
+            <option value="Black African">African</option>
+            <option value="Black African American">African American</option>
+            <option value="Black Caribbean">Caribbean</option>
+            <option value="Black Other">Any other Black background</option>
+          </optgroup>
+          <optgroup label="Other ethnic groups">
+            <option value="Arab">Arab</option>
+            <option value="Hispanic">Hispanic</option>
+            <option value="Latino">Latino</option>
+            <option value="Native American">Native American</option>
+            <option value="Pacific Islander">Pacific Islander</option>
+            <option value="Other">Any other ethnic group</option>
+          </optgroup>
+        </select>
+      </fieldset>
+      <br>
+      
+    </div>
+    <button type="submit" class="btn btn-primary" action="json_store.php" method="post" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Submit</button>
+  </form>
