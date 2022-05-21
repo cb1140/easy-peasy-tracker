@@ -38,6 +38,7 @@
     href="easypeasy.css" 
     /> 
 
+
       <!-- Favicon and Title Aesthetic -->
     <link rel="icon" href="lemon-favicon.png">
     <title>Easy Peasy Tracker</title>
@@ -51,14 +52,7 @@
   </head>
   <body>
     
-<script>
-
-
-
-
-  
-    
-  </script>
+    <div>
     
     
     <!-- Navbar -->
@@ -90,154 +84,199 @@
     </nav>
 
 
-    
-
-    <!-- Welcome Back -->
-    <section
-      class="bg-dark text-light p-5 p-lg-0 pt-lg-5 text-center text-sm-start">
-      <div class="container">
-        <div class="d-sm-flex align-items-center justify-content-between">
-          <div>
-            <h1>We've never met before, let's get started!
-              <div id="result"></div> </h1>
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
-                Let's go!
-              </button>
-            <p class="lead my-4">
-              <a id="clock">0</a>
-            </p>
+    <!-- Modal -->
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="editModalLabel">Modal title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="first-name" class="col-form-label" >
+                  <i class="bi bi-file-person-fill"></i> First Name:
+                </label>
+                <input type="text" class="form-control" id="first-name"/>
+              </div>
+              <div class="mb-3">
+                <label for="middle-name" class="col-form-label">
+                  <i class="bi bi-file-person"></i> Middle Name(s):
+                </label>
+                <input type="text" class="form-control" id="middle-name" />
+              </div>
+              <div class="mb-3">
+                <label for="last-name" class="col-form-label">
+                  <i class="bi bi-file-person"></i> Last Name:
+                </label>
+                <input type="text" class="form-control" id="last-name" />
+              </div>
+              <div class="mb-3">
+                <label for="age" class="col-form-label">
+                  <i class="bi bi-calendar-date"></i> Age:
+                </label>
+                <input type="age" class="form-control" id="age" />
+              </div>
+              <div class="mb-3">
+                <label for="gender" class="col-form-label">
+                  <i class="bi bi-gender-trans"></i> Gender:
+                </label>
+                <input type="text" class="form-control" id="gender-assign" />
+              </div>
+              
+              <div class="mb-3">
+                <fieldset>
+                  <label for="ethnicity" class="col-form-label"><i class="bi bi-globe"></i> To which racial or ethnic group do you most identify?</label>
+                  <select class="form-control dropdown" id="ethnicity" name="ethnicity">
+                    <option value="" selected="selected" disabled="disabled">Select one...</option>
+                    <optgroup label="White">
+                      <option value="White English">English</option>
+                      <option value="White Welsh">Welsh</option>
+                      <option value="White Scottish">Scottish</option>
+                      <option value="White Northern Irish">Northern Irish</option>
+                      <option value="White Irish">Irish</option>
+                      <option value="White Gypsy or Irish Traveller">Gypsy or Irish Traveller</option>
+                      <option value="White Other">Any other White background</option>
+                    </optgroup>
+                    <optgroup label="Mixed or Multiple ethnic groups">
+                      <option value="Mixed White and Black Caribbean">White and Black Caribbean</option>
+                      <option value="Mixed White and Black African">White and Black African</option>
+                      <option value="Mixed White Other">Any other Mixed or Multiple background</option>
+                    </optgroup>
+                    <optgroup label="Asian">
+                      <option value="Asian Indian">Indian</option>
+                      <option value="Asian Pakistani">Pakistani</option>
+                      <option value="Asian Bangladeshi">Bangladeshi</option>
+                      <option value="Asian Chinese">Chinese</option>
+                      <option value="Asian Other">Any other Asian background</option>
+                    </optgroup>
+                    <optgroup label="Black">
+                      <option value="Black African">African</option>
+                      <option value="Black African American">African American</option>
+                      <option value="Black Caribbean">Caribbean</option>
+                      <option value="Black Other">Any other Black background</option>
+                    </optgroup>
+                    <optgroup label="Other ethnic groups">
+                      <option value="Arab">Arab</option>
+                      <option value="Hispanic">Hispanic</option>
+                      <option value="Latino">Latino</option>
+                      <option value="Native American">Native American</option>
+                      <option value="Pacific Islander">Pacific Islander</option>
+                      <option value="Other">Any other ethnic group</option>
+                    </optgroup>
+                  </select>
+                </fieldset>
+                <br>
+                
+              </div>
+              </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" id="editor" data-bs-toggle="modal" data-bs-target="#editModal">Save changes</button>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+
 
     <br>
-      <div class="container">
-        <div class ="row-centre">
-        <div class="col-4">
-    
-    <form>
-      <div class="mb-3">
-        <label for="first-name" class="col-form-label" >
-          <i class="bi bi-file-person-fill"></i> First Name:
-        </label>
-        <input type="text" class="form-control" id="first-name"/>
-      </div>
-      <div class="mb-3">
-        <label for="last-name" class="col-form-label">
-          <i class="bi bi-file-person"></i> Last Name:
-        </label>
-        <input type="text" class="form-control" id="last-name" />
-      </div>
-      <div class="mb-3">
-        <label for="gender" class="col-form-label">
-          <i class="bi bi-gender-trans"></i> Gender:
-        </label>
-        <input type="text" class="form-control" id="gender" />
-      </div>
-      <div class="mb-3">
-        <label for="age" class="col-form-label">
-          <i class="bi bi-calendar-date"></i> Age:
-        </label>
-        <input type="age" class="form-control" id="age" />
-      </div>
-      <div class="mb-3">
-        <fieldset>
-          <label for="ethnicity" class="col-form-label"><i class="bi bi-globe"></i> To which racial or ethnic group do you most identify?</label>
-          <select class="form-control dropdown" id="ethnicity" name="ethnicity">
-            <option value="" selected="selected" disabled="disabled">Select one...</option>
-            <optgroup label="White">
-              <option value="White English">English</option>
-              <option value="White Welsh">Welsh</option>
-              <option value="White Scottish">Scottish</option>
-              <option value="White Northern Irish">Northern Irish</option>
-              <option value="White Irish">Irish</option>
-              <option value="White Gypsy or Irish Traveller">Gypsy or Irish Traveller</option>
-              <option value="White Other">Any other White background</option>
-            </optgroup>
-            <optgroup label="Mixed or Multiple ethnic groups">
-              <option value="Mixed White and Black Caribbean">White and Black Caribbean</option>
-              <option value="Mixed White and Black African">White and Black African</option>
-              <option value="Mixed White Other">Any other Mixed or Multiple background</option>
-            </optgroup>
-            <optgroup label="Asian">
-              <option value="Asian Indian">Indian</option>
-              <option value="Asian Pakistani">Pakistani</option>
-              <option value="Asian Bangladeshi">Bangladeshi</option>
-              <option value="Asian Chinese">Chinese</option>
-              <option value="Asian Other">Any other Asian background</option>
-            </optgroup>
-            <optgroup label="Black">
-              <option value="Black African">African</option>
-              <option value="Black African American">African American</option>
-              <option value="Black Caribbean">Caribbean</option>
-              <option value="Black Other">Any other Black background</option>
-            </optgroup>
-            <optgroup label="Other ethnic groups">
-              <option value="Arab">Arab</option>
-              <option value="Hispanic">Hispanic</option>
-              <option value="Latino">Latino</option>
-              <option value="Native American">Native American</option>
-              <option value="Pacific Islander">Pacific Islander</option>
-              <option value="Other">Any other ethnic group</option>
-            </optgroup>
-          </select>
-        </fieldset>
+     
+<div class="container">
+  <div class="row row-cols-3">
+    <div class="col">
+        <h2 class="text-left mb-4">Personal Information</h2>
+        <ul class="list-group list-group-flush lead">
+          <li class="list-group-item">
+            <span class="fw-bold" id="full-name"> Full Name: </span></a> 
+            
+          </li>
+          <li class="list-group-item">
+            <span class="fw-bold" id="age-dob"> Age and D.O.B:</span> 
+          </li>
+          <li class="list-group-item">
+            <span class="fw-bold"  id="gender"> </i>
+               Gender:</span> 
+          </li>
+          <li class="list-group-item">
+            <span class="fw-bold"  id="ethnic"></i>
+               Ethnicity:</span> 
+            
+          </li>
+          <li class="list-group-item">
+            <span class="fw-bold"  id="locale">Location:</span>
+            
+          </li>
+          <li class="list-group-item">
+            <span class="fw-bold"  id="gp-office">Assigned GP Office:</span>
+            
+          </li>
+          <li class="list-group-item">
+            <span class="fw-bold"  id="gp-prefer">Preferred GP specialist:</span>
+            
+          </li>
+        </ul>
         <br>
         
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal">
+          Edit Details
+        </button>
+        
       </div>
-      <button type="submit" class="btn btn-primary" onclick="saveData()" method="post" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Submit</button>
-    </form>
-  </div>
-  </div>
-</div>
-
-<br>
 
 
-
-
-
-    <!-- Current Information -->
-    <section class="p-5">
-      <div class="container">
-        <div class="row g-4">
-          <div class="col-md">
-            <h2 class="text-left mb-4">Current Information</h2>
-            <ul class="list-group list-group-flush lead">
-              <li class="list-group-item">
-                <span class="fw-bold"><i class="bi bi-droplet-half"></i> Water Drank (ml):</span><a id="clicks"> 0</a> 
-                
-              </li>
-              <li class="list-group-item">
-                <span class="fw-bold"><i class="bi bi-activity"></i> Blood Pressure:</span> 
-              </li>
-              <li class="list-group-item">
-                <span class="fw-bold"><i class="bi bi-bucket-fill"></i>
-                   Weight (kg):</span> 
-              </li>
-              <li class="list-group-item">
-                <span class="fw-bold"><i class="bi bi-clipboard2-data-fill"></i>
-                   Height (cm):</span> 
-                
-              </li>
-              <li class="list-group-item">
-                <span class="fw-bold">Placeholder:</span>
-                
-              </li>
-            </ul>
-          </div>
-          <div class="col-md">
-            <img
-                  src="https://github.com/cb1140/easy-peasy-tracker/blob/main/assets/example_profile_picture.jpg?raw=true"
-                  class="img"
-                  alt="Profile Photo Here" 
-                  height="500" 
-                />
-          </div>
-        </div>
+      <div class="col">
+        <img
+              src="https://github.com/cb1140/easy-peasy-tracker/blob/main/assets/example_profile_picture.jpg?raw=true"
+              class="center"
+              alt="Profile Photo Here" 
+              
+            />
       </div>
-    </section>
+    <div class="col">
+      <h2 >Current Information</h2>
+        <ul class="list-group list-group-flush lead">
+          <li class="list-group-item">
+            <span class="fw-bold"><i class="bi bi-droplet-half"></i> Water Drank (ml):</span><a id="clicks"> 0</a> 
+            
+          </li>
+          <li class="list-group-item">
+            <span class="fw-bold"><i class="bi bi-activity"></i> Blood Pressure:</span> 
+          </li>
+          <li class="list-group-item">
+            <span class="fw-bold"><i class="bi bi-bucket-fill"></i>
+               Weight (kg):</span> 
+          </li>
+          <li class="list-group-item">
+            <span class="fw-bold"><i class="bi bi-clipboard2-data-fill"></i>
+               Height (cm):</span> 
+            
+          </li>
+          <li class="list-group-item">
+            <span class="fw-bold">Placeholder:</span>
+            
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <br>
+  <br>
+  <br>
+  <br><br>
+
+
+
+
+
+
+
+<section class="p-5">
+  
+
+</section>
 
     <!-- Footer -->
     <footer class="p-5 bg-dark text-white text-center position-relative">
@@ -252,8 +291,42 @@
     </footer>
 
     
-    
+      
 
+<script type="text/javascript">
+  $("#editor").click(function () {
+      var fname = $("#first-name").val();
+      var mname = $("#middle-name").val();
+      var lname = $("#last-name").val();
+      var agedob = $("#age").val();
+      var genderval = $("#gender-assign").val();
+      var ethnicityval = $("#ethnicity").val();
+      
+
+
+
+      var name = 
+          "Full Name: " + fname + " " + mname + " " + lname 
+          ;
+      $("#full-name").html(name);
+
+      var birth = 
+          "Age and D.O.B: " + agedob;
+      $("#age-dob").html(birth);
+
+      var genderassign = 
+          "Gender: " + genderval 
+          ;
+      $("#gender").html(genderassign);
+
+      var ethnicval = 
+          "Ethnicity: "  + ethnicityval
+          ;
+      $("#ethnic").html(ethnicval);
+  });
+</script>
+    
+ 
     
 
 <script type="text/javascript">
@@ -277,6 +350,6 @@
   document.body.removeChild(a);
 }
 </script>
-
+</div>
   </body>
 </html>
