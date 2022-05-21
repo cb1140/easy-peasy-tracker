@@ -47,9 +47,26 @@
    
   </head>
   <body>
-    jQuery(document).ready(function(){
-      alert('Your DOM is ready.Now below this u can run all ur javascript');
-  });
+    let card = document.createElement('div');
+    card.className = 'card shadow cursor-pointer';
+
+    let cardBody = document.createElement('div');
+    cardBody.className = 'card-body';
+
+    let title = document.createElement('h5');
+    title.innerText = task.title;
+    title.className = 'card-title';
+
+    let color = document.createElement('div');
+    color.innerText = task.color;
+    color.className = 'card-color';
+
+
+    cardBody.appendChild(title);
+    cardBody.appendChild(color);
+    card.appendChild(cardBody);
+    cardContainer.appendChild(card);
+
 
 <div class="container">
   <div class="row">
@@ -124,7 +141,7 @@
           <br>
           
         </div>
-        <button type="submit" class="btn btn-primary" onclick="saveData()" method="post" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Submit</button>
+        
         </form>
     </div>
     <div class="col">

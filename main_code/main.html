@@ -44,8 +44,39 @@
 
       <!-- Favicon and Title Aesthetic -->
     <link rel="icon" href="lemon-favicon.png">
-    <title>Easy Peasy Tracker</title>
+    <title>Home - Easy Peasy Tracker</title>
+
+
  <script>
+
+  var clicks = 0;
+  var drinks = 0;
+  var ml = 0;
+  
+  function onClickAdd() {
+  clicks += 250;
+  ml += 250;
+  drinks += 1;
+  document.getElementById("clicks").innerHTML = clicks;
+  document.getElementById("drinks").innerHTML = drinks;
+  document.getElementById("ml").innerHTML = ml;
+  };
+
+  function onClickSub() {
+  clicks -= 250;
+  ml -= 250;
+  drinks -= 1;
+  if (clicks < 0) {
+      clicks = 0;
+      drinks = 0;
+      ml = 0;
+  }
+  document.getElementById("clicks").innerHTML = clicks;
+  document.getElementById("drinks").innerHTML = drinks;
+  document.getElementById("ml").innerHTML = ml;
+   };
+   
+  
 
 
 $( document ).ready(function() {
@@ -54,6 +85,8 @@ $( document ).ready(function() {
   let obj = JSON.parse(text);
   document.getElementById("name-display").innerHTML = "Welcome back " + obj.name + "!";
 
+ 
+  
 
 
 
@@ -106,16 +139,17 @@ $( document ).ready(function() {
       class="bg-dark text-light p-5 p-lg-0 pt-lg-5 text-center text-sm-start">
       <div class="container" >
         <div class="d-sm-flex align-items-center justify-content-between">
-          <div>
-            <h1 id="name-display"></h1>
+          <div class = "nothidden">
+            <h1 id="name-display"></h1> 
+            <p>Click below to get started with your profile!</p>
+            <br>
               
               <a href="profile.html" class="btn btn-primary">Let's go!</a>
-            <p class="lead my-4">
-              
-              <a id="clock">0</a>
-            </p>
+            <br>
+            <br>
             <br>
           </div>
+          
         </div>
       </div>
     </section>
@@ -320,53 +354,6 @@ $( document ).ready(function() {
       </div>
     </footer>
 
-    
-    
-
-    
-
-<script type="text/javascript">
-    var clockElement = document.getElementById('clock');
-
-    function clock() {
-        clockElement.textContent = new Date().toString();
-    }
-
-    setInterval(clock, 1000);
-</script>
-
-<script type="text/javascript">
-  var clicks = 0;
-  var drinks = 0;
-  var ml = 0;
-  
-  function onClickAdd() {
-  clicks += 250;
-  ml += 250;
-  drinks += 1;
-  document.getElementById("clicks").innerHTML = clicks;
-  document.getElementById("drinks").innerHTML = drinks;
-  document.getElementById("ml").innerHTML = ml;
-  };
-
-  function onClickSub() {
-  clicks -= 250;
-  ml -= 250;
-  drinks -= 1;
-  if (clicks < 0) {
-      clicks = 0;
-      drinks = 0;
-      ml = 0;
-  }
-  document.getElementById("clicks").innerHTML = clicks;
-  document.getElementById("drinks").innerHTML = drinks;
-  document.getElementById("ml").innerHTML = ml;
-   };
-   
-</script>
-
-
-
-
+ 
   </body>
 </html>
