@@ -646,44 +646,7 @@
       </div>
     </footer>
 
-        <script type="text/javascript">
-          var clockElement = document.getElementById("clock");
-
-          function clock() {
-            clockElement.textContent = new Date().toString();
-          }
-
-          setInterval(clock, 1000);
-        </script>
-
-        <script type="text/javascript">
-          var clicks = 0;
-          var drinks = 0;
-          var ml = 0;
-
-          function onClickAdd() {
-            clicks += 250;
-            ml += 250;
-            drinks += 1;
-            document.getElementById("clicks").innerHTML = clicks;
-            document.getElementById("drinks").innerHTML = drinks;
-            document.getElementById("ml").innerHTML = ml;
-          }
-
-          function onClickSub() {
-            clicks -= 250;
-            ml -= 250;
-            drinks -= 1;
-            if (clicks < 0) {
-              clicks = 0;
-              drinks = 0;
-              ml = 0;
-            }
-            document.getElementById("clicks").innerHTML = clicks;
-            document.getElementById("drinks").innerHTML = drinks;
-            document.getElementById("ml").innerHTML = ml;
-          }
-        </script>
+      
       </div>
     
   </body>
