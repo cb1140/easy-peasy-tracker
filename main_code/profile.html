@@ -16,10 +16,14 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css"
       />
-    <!-- js cookie CDN -->
+    <!-- multiple js cookie CDN due to multiple experimentations-->
     <script 
     src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.js">
     </script>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
       
       <!-- jQuery CDN -->
     <script 
@@ -33,18 +37,19 @@
     <script 
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js">
     </script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+   
       <!-- Original Developer Stylesheet -->
     <link rel="stylesheet" 
     href="easypeasy.css" 
     /> 
 
+        
 
 
       <!-- Favicon and Title Aesthetic -->
     <link rel="icon" href="lemon-favicon.png">
-    <title>Easy Peasy Tracker</title>
+    <title>Home - Easy Peasy Tracker</title>
     
     <script type="text/javascript">
       $(function () {
@@ -73,15 +78,27 @@
             ;
         $("#ethnic").html(ethnicval);
   
-        $.cookie("fullnamecookie", name, { expires: 7 });
-        $("#full-name").html(($.cookie("fullnamecookie")));
+        $.cookie("fullnamecookie", name);
+        $.cookie("agecookie", agedob);
+        $.cookie("gendercookie", genderval);
+        $.cookie("ethnicitycookie", ethnicityval);
+
+        
+
+        
       });
   
        
       $( document ).ready(function() {
 
-        $("#full-name").html(($.cookie("fullnamecookie")));
-        alert($.cookie("fullnamecookie"));
+        $("#full-name").html('Full Name: ' + ($.cookie("fullnamecookie")));
+        $("#age-dob").html('Age and D.O.B: ' + ($.cookie("agecookie")));
+        $("#gender").html('Gender: ' + ($.cookie("gendercookie")));
+        $("#ethnic").html('Ethnicity: ' + ($.cookie("ethnicitycookie")));
+
+        const obj = {name: $.cookie("fullnamecookie"), age: $.cookie("agecookie"), gender: $.cookie("gendercookie")};
+        const myJSON = JSON.stringify(obj);
+        localStorage.setItem("testJSON", myJSON);
 
           });
       });
@@ -89,7 +106,8 @@
    
   </head>
   <body>
-
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
     
     
     <div>
@@ -98,7 +116,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 fixed-top">
       <div class="container">
-        <a href="#" class="navbar-brand">Easy Peasy Tracker</a>
+        <a href="main.html" class="navbar-brand">Easy Peasy Tracker &#127819;</a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
           <span class="navbar-toggler-icon"></span>
@@ -123,7 +141,7 @@
       </div>
     </nav>
 
-    <input type="text" id="txtName" />
+
 <br />
 <br />
 
@@ -270,7 +288,7 @@
         </button>
         
       </div>
-
+<p id="jsonexample"></p>
 
       <div class="col">
         <img

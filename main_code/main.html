@@ -16,10 +16,12 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css"
       />
-    <!-- js cookie CDN -->
+    <!-- multiple js cookie CDN due to multiple experimentations-->
     <script 
-    src="https://www.jsdelivr.com/package/npm/js-cookie">
+    src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.js">
     </script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
       
       <!-- jQuery CDN -->
     <script 
@@ -33,6 +35,8 @@
     <script 
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js">
     </script>
+
+   
       <!-- Original Developer Stylesheet -->
     <link rel="stylesheet" 
     href="easypeasy.css" 
@@ -41,7 +45,23 @@
       <!-- Favicon and Title Aesthetic -->
     <link rel="icon" href="lemon-favicon.png">
     <title>Easy Peasy Tracker</title>
+ <script>
 
+
+$( document ).ready(function() {
+ 
+  let text = localStorage.getItem("testJSON");
+  let obj = JSON.parse(text);
+  document.getElementById("name-display").innerHTML = "Welcome back " + obj.name + "!";
+
+
+
+
+  });
+
+ 
+
+ </script>
 
 
    
@@ -87,7 +107,7 @@
       <div class="container" >
         <div class="d-sm-flex align-items-center justify-content-between">
           <div>
-            <h1 id="demo">We've never met before, let's get started!
+            <h1 id="name-display"></h1>
               
               <a href="profile.html" class="btn btn-primary">Let's go!</a>
             <p class="lead my-4">
