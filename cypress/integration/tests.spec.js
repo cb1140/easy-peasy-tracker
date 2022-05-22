@@ -71,7 +71,7 @@ describe('4) Navigation Bar Profile', () => {
 })
 
 describe('5) Navigation Bar Tracking', () => {
-  it('On button click, should go to tracking.html', () => {
+  it('On button click, should go to track.html', () => {
     cy.visit('https://5500-cb1140-easypeasytracker-2kt6enmtrdb.ws-eu45.gitpod.io/main_code/main.html')
 	Cypress.on('uncaught:exception', (err, runnable) => {
   // returning false here prevents Cypress from
@@ -79,8 +79,7 @@ describe('5) Navigation Bar Tracking', () => {
   // due to website being hosted on Gitpod ports
   return false
 		})
-		
-		cy.contains('Tracking').click()
+		cy.contains('Track').click()
 		cy.url().should('include', '/main_code/track.html')
     
   })
