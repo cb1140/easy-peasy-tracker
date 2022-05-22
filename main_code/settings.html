@@ -44,39 +44,41 @@
     <title>Settings - Easy Peasy Tracker</title>
 
     <script>
-      var clicks = 0;
-      var drinks = 0;
-      var ml = 0;
-
-      function onClickAdd() {
-        clicks += 250;
-        ml += 250;
-        drinks += 1;
-        document.getElementById("clicks").innerHTML = clicks;
-        document.getElementById("drinks").innerHTML = drinks;
-        document.getElementById("ml").innerHTML = ml;
-      }
-
-      function onClickSub() {
-        clicks -= 250;
-        ml -= 250;
-        drinks -= 1;
-        if (clicks < 0) {
-          clicks = 0;
-          drinks = 0;
-          ml = 0;
-        }
-        document.getElementById("clicks").innerHTML = clicks;
-        document.getElementById("drinks").innerHTML = drinks;
-        document.getElementById("ml").innerHTML = ml;
-      }
 
       $(document).ready(function () {
         let text = localStorage.getItem("testJSON");
         let obj = JSON.parse(text);
-        document.getElementById("name-display").innerHTML =
-          "Welcome back " + obj.name + "!";
+
+        let texts = localStorage.getItem("moreJSON");
+        let objs = JSON.parse(texts);
+
+          document.getElementById("full-name").innerHTML = "Full Name: " + obj.name ;
+          document.getElementById("age-dob").innerHTML = "Age: " + obj.age ;
+          document.getElementById("gender").innerHTML = "Gender: " + obj.gender ;
+          document.getElementById("ethnic").innerHTML = "Ethnicity: " + obj.ethnicity ;
+
+          document.getElementById("symptom1").innerHTML = "Main Symptom: " + objs.title ;
+          document.getElementById("symptom1.1").innerHTML = "Days: " + objs.day ;
+          document.getElementById("symptom1.2").innerHTML = "Severity (scale from 1 to 5): " + objs.severity ;
+          document.getElementById("symptom1.3").innerHTML = "Description: " + objs.specific ;
+          
       });
+
+      function exportAll() {
+
+          const filename = 'data.json';
+          const jsonStr = localStorage.getItem("testJSON");
+
+          let element = document.createElement('a');
+          element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(jsonStr));
+          element.setAttribute('download', filename);
+
+          element.style.display = 'none';
+          document.body.appendChild(element);
+          element.click();
+          document.body.removeChild(element);
+           
+        }
     </script>
   </head>
   <body>
@@ -122,190 +124,168 @@
         <div class="d-sm-flex align-items-center justify-content-between">
           <div class="nothidden">
             <h1 id="name-display"></h1>
-            <p>Click below to get started with your profile!</p>
+            <p>Here we can export your data.</p>
+            <br />
             <br />
 
-            <a href="profile.html" class="btn btn-primary">Let's go!</a>
-            <br />
-            <br />
-            <br />
           </div>
         </div>
       </div>
     </section>
+    <br />
+    <div class="container">
+      <div class="row row-cols-3">
+        <div class="col">
+          <h2 class="text-left mb-4">Personal Information</h2>
+          <ul class="list-group list-group-flush lead">
+            <li class="list-group-item">
+              <span class="fw-bold" id="full-name">Full Name:</span>
+            </li>
+            <li class="list-group-item">
+              <span class="fw-bold" id="age-dob"> Age:</span>
+            </li>
+            <li class="list-group-item">
+              <span class="fw-bold" id="gender"> Gender:</span>
+            </li>
+            <li class="list-group-item">
+              <span class="fw-bold" id="ethnic"> Ethnicity:</span>
+            </li>
+            <li class="list-group-item">
+              <span class="fw-bold" id="locale">Location:</span>
+            </li>
+            <li class="list-group-item">
+              <span class="fw-bold" id="gp-office">Assigned GP Office:</span>
+            </li>
+            <li class="list-group-item">
+              <span class="fw-bold" id="gp-prefer"
+                >Preferred GP Specialist:</span
+              >
+            </li>
+          </ul>
+          <br />
 
-    <!-- Water / Other / Other -->
-    <section class="p-5">
-      <div class="container">
-        <div class="row text-center g-4">
-          <div class="col-md">
-            <div class="card bg-dark text-light">
-              <div class="card-body text-center">
-                <div class="h1 mb-3">&#x1F964;<!-- Icon --></div>
-                <h3 class="card-title mb-3">Water</h3>
-                <p class="card-text">
-                  You've drunk <a id="clicks">0</a>ml today! That's
-                  <a id="drinks">0</a> glasses of water.
-                </p>
-                <br />
-                <button class="btn btn-secondary btn-sm" onClick="onClickSub()">
-                  &#x2796;
-                </button>
 
-                <button class="btn btn-secondary btn-sm" onClick="onClickAdd()">
-                  &#x2795;
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="col-md">
-            <div class="card bg-secondary text-light">
-              <div class="card-body text-center">
-                <div class="h1 mb-3">
-                  <i class="bi bi-person-square"></i>
-                </div>
-                <h3 class="card-title mb-3">Hybrid</h3>
-                <p class="card-text">
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Iure, quas quidem possimus dolorum esse eligendi?
-                </p>
-                <a href="#" class="btn btn-dark">Read More</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md">
-            <div class="card bg-dark text-light">
-              <div class="card-body text-center">
-                <div class="h1 mb-3">
-                  <i class="bi bi-people"></i>
-                </div>
-                <h3 class="card-title mb-3">In Person</h3>
-                <p class="card-text">
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Iure, quas quidem possimus dolorum esse eligendi?
-                </p>
-                <a href="#" class="btn btn-primary">Read More</a>
-              </div>
-            </div>
-          </div>
+          <!-- Button that calls EDIT modal-->
+          <button
+            type="button"
+            class="btn btn-primary"
+            
+          >
+            Export Personal
+          </button>
         </div>
-      </div>
-    </section>
 
-    <section id="instructors" class="p-5 bg-primary">
-      <div class="container">
-        <h2 class="text-center text-white">Your Current Tracks</h2>
-        <p class="lead text-center text-white mb-5">
-          See all of your recent tracks here...
-        </p>
-        <div class="row g-4">
-          <div class="col-md-6 col-lg-3">
-            <div class="card bg-light">
-              <div class="card-body text-center">
-                <img src="" class="rounded-circle mb-3" alt="" />
-                <h3 class="card-title mb-3">Coughing</h3>
-                <p class="card-text">5 Days</p>
-                <a href="#" class="btn btn-dark">End Track</a>
-                <a href="#" class="btn btn-dark">Edit Track</a>
-              </div>
-            </div>
-          </div>
 
-          <div class="col-md-6 col-lg-3">
-            <div class="card bg-light">
-              <div class="card-body text-center">
-                <img src="" class="rounded-circle mb-3" alt="" />
-                <h3 class="card-title mb-3">Sneezing</h3>
-                <p class="card-text">7 Days</p>
-                <a href="#" class="btn btn-dark">End Track</a>
-                <a href="#" class="btn btn-dark">Edit Track</a>
-              </div>
-            </div>
-          </div>
 
-          <div class="col-md-6 col-lg-3">
-            <div class="card bg-light">
-              <div class="card-body text-center">
-                <img src="" class="rounded-circle mb-3" alt="" />
-                <h3 class="card-title mb-3">Sleep</h3>
-                <p class="card-text">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Assumenda accusamus nobis sed cupiditate iusto? Quibusdam.
-                </p>
-                <a href="#" class="btn btn-dark">End Track</a>
-                <a href="#" class="btn btn-dark">Edit Track</a>
-              </div>
-            </div>
-          </div>
 
-          <div class="col-md-6 col-lg-3">
-            <div class="card bg-light">
-              <div class="card-body text-center">
-                <img src="" class="rounded-circle mb-3" alt="" />
-                <h3 class="card-title mb-3">Fever</h3>
-                <p class="card-text">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Assumenda accusamus nobis sed cupiditate iusto? Quibusdam.
-                </p>
-                <a href="#" class="btn btn-dark">End Track</a>
-                <a href="#" class="btn btn-dark">Edit Track</a>
-              </div>
-            </div>
-          </div>
+        <!-- CURRENT INFORMATION COLUMN-->
+        <div class="col">
+          <h2>Health</h2>
+          <ul class="list-group list-group-flush lead">
+            <li class="list-group-item">
+              <span class="fw-bold"
+                ><i class="bi bi-droplet-half"></i> Water Drank (ml):</span
+              ><a id="clicks"> 0</a>
+            </li>
+            <li class="list-group-item">
+              <span class="fw-bold"
+                ><i class="bi bi-activity"></i> Blood Pressure:</span
+              >
+            </li>
+            <li class="list-group-item">
+              <span class="fw-bold"
+                ><i class="bi bi-bucket-fill"></i> Weight (kg):</span
+              >
+            </li>
+            <li class="list-group-item">
+              <span class="fw-bold"
+                ><i class="bi bi-clipboard2-data-fill"></i> Height (cm):</span
+              >
+            </li>
+            <li class="list-group-item">
+              <span class="fw-bold">Placeholder:</span>
+            </li>
+          </ul>
+          <br>
+          <button
+            type="button"
+            class="btn btn-primary"
+           
+          >
+            Export Health
+          </button>
         </div>
-      </div>
-    </section>
 
-    <!-- Current Information -->
-    <section class="p-5">
-      <div class="container">
-        <div class="row g-4">
-          <div class="col-md">
-            <h2 class="text-left mb-4">Current Information</h2>
-            <ul class="list-group list-group-flush lead">
-              <li class="list-group-item">
-                <span class="fw-bold"
-                  ><i class="bi bi-droplet-half"></i> Water Drank (ml):</span
-                ><a id="clicks"> 0</a>
-              </li>
-              <li class="list-group-item">
-                <span class="fw-bold"
-                  ><i class="bi bi-activity"></i> Blood Pressure:</span
+        <div class="col">
+          <h2>Symptoms</h2>
+          <ul class="list-group list-group-flush lead">
+            <li class="list-group-item">
+              <span class="fw-bold" id="symptom1"
                 >
-              </li>
-              <li class="list-group-item">
-                <span class="fw-bold"
-                  ><i class="bi bi-bucket-fill"></i> Weight (kg):</span
+            </span
+              >
+            </li>
+            <li class="list-group-item">
+              <span class="fw-bold" id="symptom1.1"
                 >
-              </li>
-              <li class="list-group-item">
-                <span class="fw-bold"
-                  ><i class="bi bi-clipboard2-data-fill"></i> Height (cm):</span
+            </span
+              >
+            </li>
+            <li class="list-group-item">
+              <span class="fw-bold" id="symptom1.2"
                 >
-              </li>
-              <li class="list-group-item">
-                <span class="fw-bold">Placeholder:</span>
-              </li>
-            </ul>
-          </div>
-          <div class="col-md">
-            <img
-              src="https://github.com/cb1140/easy-peasy-tracker/blob/main/assets/example_profile_picture.jpg?raw=true"
-              class="img"
-              alt="Profile Photo Here"
-              height="500"
-            />
-          </div>
+            </span
+              >
+            </li>
+            <li class="list-group-item">
+              <span class="fw-bold" id="symptom1.3"
+                >
+            </span
+              >
+            </li>
+            <li class="list-group-item">
+              <span class="fw-bold"><a id="symptom1.4"></a></span>
+            </li>
+          </ul>
+          <BR>
+          <button
+            type="button"
+            class="btn btn-primary"
+           
+          >
+            Export Symptoms
+          </button>
         </div>
+        
       </div>
-    </section>
+      <br> <br>
+      <button
+            type="button"
+            class="btn btn-primary"
+            onclick="exportAll()"
+           
+          >
+            Export All
+          </button>
+    </div>
+
+
+    <!-- Tags in order to keep design layout -->
+    <br>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <section class="p-5"></section>
 
     <!-- Footer -->
-     <!-- Footer -->
-     <footer class="p-5 bg-dark text-white text-center position-relative">
+    <footer class="p-5 bg-dark text-white text-center position-relative">
       <div class="container">
-        <p class="lead">  <p>&#128679; <b>This is an under construction prototype!</b> &#128679;</p>
-      </p>
+        <p class="lead"></p>
+        <p>
+          &#128679; <b>This is an under construction prototype!</b> &#128679;
+        </p>
+        <!-- Arrow takes user to the top of the page-->
         <a href="#" class="position-absolute bottom-0 end-0 p-5">
           <i class="bi bi-arrow-up h1"></i>
         </a>

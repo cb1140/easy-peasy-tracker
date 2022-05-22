@@ -55,7 +55,7 @@
     <!-- - LOCALSTORAGE-->
     <script type="text/javascript">
       $(function () {
-        //On click of save deta
+        //On click of save data
         $("#editor").click(function () {
           //Store all edit modal forms into variables
           var fname = $("#first-name").val();
@@ -69,7 +69,7 @@
           //Takes all variables and places into HTML elements
           $("#full-name").html("Full Name: " + fname + " " + mname + " " + lname);
 
-          var birth = "Age and D.O.B: " + agedob;
+          var birth = "Age: " + agedob;
           $("#age-dob").html(birth);
 
           var genderassign = "Gender: " + genderval;
@@ -83,6 +83,8 @@
           $.cookie("agecookie", agedob);
           $.cookie("gendercookie", genderval);
           $.cookie("ethnicitycookie", ethnicityval);
+        
+          
         });
 
 
@@ -97,12 +99,17 @@
           $("#age-dob").html("Age: " + $.cookie("agecookie"));
           $("#gender").html("Gender: " + $.cookie("gendercookie"));
           $("#ethnic").html("Ethnicity: " + $.cookie("ethnicitycookie"));
+          
 
           const obj = {
             name: $.cookie("fullnamecookie"),
             age: $.cookie("agecookie"),
             gender: $.cookie("gendercookie"),
             ethnicity: $.cookie("ethnicitycookie"),
+            location: $.cookie("locationcookie"),
+            gpoffice: $.cookie("GPofficecookie"),
+            gpprefer: $.cookie("GPprefercookie"),
+            
           };
           const myJSON = JSON.stringify(obj);
           localStorage.setItem("testJSON", myJSON);
@@ -215,7 +222,7 @@
                   <label for="gender" class="col-form-label">
                     <i class="bi bi-gender-trans"></i> Gender:
                   </label>
-                  <input type="text" class="form-control" id="genderassign" />
+                  <input type="text" class="form-control" id="gender-assign" />
                 </div>
                 <div class="mb-3">
                   <label for="age" class="col-form-label">

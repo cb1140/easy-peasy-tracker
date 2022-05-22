@@ -47,8 +47,12 @@
     <title>Home - Easy Peasy Tracker</title>
 
 
- <script>
 
+<!-- Scripts for -->
+    <!-- - WATER STORAGE-->
+    <!-- - LOCALSTORAGE-->
+ <script>
+// Water incremenets based on button clicks
   var clicks = 0;
   var drinks = 0;
   var ml = 0;
@@ -60,8 +64,10 @@
   document.getElementById("clicks").innerHTML = clicks;
   document.getElementById("drinks").innerHTML = drinks;
   document.getElementById("ml").innerHTML = ml;
+  
+  
   };
-
+// Water decrements based on button clicks
   function onClickSub() {
   clicks -= 250;
   ml -= 250;
@@ -74,34 +80,53 @@
   document.getElementById("clicks").innerHTML = clicks;
   document.getElementById("drinks").innerHTML = drinks;
   document.getElementById("ml").innerHTML = ml;
+
+ 
+
    };
    
   
 
 
 $( document ).ready(function() {
- 
+ //Takes previous LocalStorage data and displays on
+ //Home screen from Profile.html
   let text = localStorage.getItem("testJSON");
   let obj = JSON.parse(text);
   document.getElementById("name-display").innerHTML = "Welcome back " + obj.name + "!";
 
- 
   
-
-
+ 
 
   });
 
+  
+  function exportAll() {
+
+const filename = 'data.json';
+const jsonStr = localStorage.getItem("testJSON");
+
+let element = document.createElement('a');
+element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(jsonStr));
+element.setAttribute('download', filename);
+
+element.style.display = 'none';
+document.body.appendChild(element);
+element.click();
+document.body.removeChild(element);
  
+}
+
+
+
 
  </script>
+ </head>
 
 
-   
-  </head>
+
+ <!--Main Body Starts Here-->
   <body>
-    
-
     
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 fixed-top">
@@ -111,7 +136,7 @@ $( document ).ready(function() {
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
           <span class="navbar-toggler-icon"></span>
         </button>
-
+    <!-- NavBar Options-->
         <div class="collapse navbar-collapse" id="navmenu">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
@@ -139,11 +164,10 @@ $( document ).ready(function() {
       class="bg-dark text-light p-5 p-lg-0 pt-lg-5 text-center text-sm-start">
       <div class="container" >
         <div class="d-sm-flex align-items-center justify-content-between">
-          <div class = "nothidden">
+          <div class = "">
             <h1 id="name-display"></h1> 
             <p>Click below to get started with your profile!</p>
             <br>
-              
               <a href="profile.html" class="btn btn-primary">Let's go!</a>
             <br>
             <br>
@@ -166,9 +190,11 @@ $( document ).ready(function() {
                 <div class="h1 mb-3">
                   &#x1F964;<!-- Icon -->
                 </div>
+
+                <!-- Water CARD -->
                 <h3 class="card-title mb-3">Water</h3>
                 <p class="card-text">
-                  You've drunk <a id="clicks">0</a>ml today! That's <a id="drinks">0</a> glasses of water.
+                  You've drunk <a id="clicks"></a>ml today! That's <a id="drinks">0</a> glasses of water.
                 </p>
                 <br>
                 <button class="btn btn-secondary btn-sm" onClick="onClickSub()">&#x2796;</button>
@@ -183,6 +209,7 @@ $( document ).ready(function() {
                 <div class="h1 mb-3">
                   <i class="bi bi-person-square"></i>
                 </div>
+                <!-- OTHER CARD -->
                 <h3 class="card-title mb-3">Hybrid</h3>
                 <p class="card-text">
                   Lorem, ipsum dolor sit amet consectetur adipisicing elit.
@@ -198,6 +225,7 @@ $( document ).ready(function() {
                 <div class="h1 mb-3">
                   <i class="bi bi-people"></i>
                 </div>
+                 <!-- OTHER CARD -->
                 <h3 class="card-title mb-3">In Person</h3>
                 <p class="card-text">
                   Lorem, ipsum dolor sit amet consectetur adipisicing elit.
@@ -216,7 +244,7 @@ $( document ).ready(function() {
    
 
    
-
+ <!-- Current Track Cards -->
     <section id="instructors" class="p-5 bg-primary">
       <div class="container">
         <h2 class="text-center text-white">Your Current Tracks</h2>
@@ -241,7 +269,7 @@ $( document ).ready(function() {
               </div>
             </div>
           </div>
-
+<!-- Current Track Cards -->
           <div class="col-md-6 col-lg-3">
             <div class="card bg-light">
               <div class="card-body text-center">
@@ -259,7 +287,7 @@ $( document ).ready(function() {
               </div>
             </div>
           </div>
-
+<!-- Current Track Cards -->
           <div class="col-md-6 col-lg-3">
             <div class="card bg-light">
               <div class="card-body text-center">
@@ -278,7 +306,7 @@ $( document ).ready(function() {
               </div>
             </div>
           </div>
-
+<!-- Current Track Cards -->
           <div class="col-md-6 col-lg-3">
             <div class="card bg-light">
               <div class="card-body text-center">
@@ -301,7 +329,10 @@ $( document ).ready(function() {
       </div>
     </section>
 
-    <!-- Current Information -->
+
+
+
+    <!-- Current Information Section -->
     <section class="p-5">
       <div class="container">
         <div class="row g-4">
@@ -309,6 +340,7 @@ $( document ).ready(function() {
             <h2 class="text-left mb-4">Current Information</h2>
             <ul class="list-group list-group-flush lead">
               <li class="list-group-item">
+                <!-- Calls Water variable here -->
                 <span class="fw-bold"><i class="bi bi-droplet-half"></i> Water Drank (ml):</span><a id="clicks"> 0</a> 
                 
               </li>
@@ -330,6 +362,7 @@ $( document ).ready(function() {
               </li>
             </ul>
           </div>
+           <!-- Profile Photo -->
           <div class="col-md">
             <img
                   src="https://github.com/cb1140/easy-peasy-tracker/blob/main/assets/example_profile_picture.jpg?raw=true"
@@ -354,6 +387,5 @@ $( document ).ready(function() {
       </div>
     </footer>
 
- 
   </body>
 </html>
