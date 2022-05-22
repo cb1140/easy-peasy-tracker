@@ -244,7 +244,8 @@ describe('15) Fill Form Update Data', () => {
 				cy.get('[id=gender-assign').type('A')
 				cy.get('[id=age').type('Test')
 				cy.contains('Save changes').click({force: true})
-				
+				//This test fills out a form and then 
+        //checks the data has been updated into the list on the main page
 				cy.contains('Hello Is')
 
 
@@ -308,25 +309,7 @@ describe('18) Check Card Creation Modal Submits', () => {
 })
 
 
-describe('19) Check Card Creation Modal Closes', () => {
-  it('We want this test to fail', () => {
-    cy.visit('https://5500-cb1140-easypeasytracker-2kt6enmtrdb.ws-eu45.gitpod.io/main_code/track.html')
-	Cypress.on('uncaught:exception', (err, runnable) => {
-  // returning false here prevents Cypress from
-  // failing the test
-  // due to website being hosted on Gitpod ports
-  return false
-		})
-				cy.contains('Create New Symptom Tracker').click({force: true})
-				cy.contains('How are you feeling?')
-				cy.contains('Next').click({force:true})
-				cy.contains('How would you describe your cough?')
-				cy.contains('Save').click({force:true})
-				cy.get('How would you describe your cough?')
-	})
-          
-		   
-})
+
 
 describe('19) Check Card Creation Modal Closes', () => {
   it('We want this test to fail', () => {
@@ -351,20 +334,16 @@ describe('19) Check Card Creation Modal Closes', () => {
 describe('20) Loading Test', () => {
   it('Check page loads in correctly', () => {
     cy.visit('https://5500-cb1140-easypeasytracker-2kt6enmtrdb.ws-eu45.gitpod.io/main_code/profile.html')
-	Cypress.on('uncaught:exception', (err, runnable) => {
+  Cypress.on('uncaught:exception', (err, runnable) => {
   // returning false here prevents Cypress from
   // failing the test
   // due to website being hosted on Gitpod ports
   return false
-		})
-		
-		
-
-		cy.url().should('include', '/main_code/main.html')
-
-    
+    })
+    cy.url().should('include', '/main_code/profile.html')
   })
 })
+
 
 describe('21) Navigation Bar Title', () => {
   it('On title click, should refresh page', () => {
@@ -561,11 +540,8 @@ describe('32) Loading Test', () => {
   // due to website being hosted on Gitpod ports
   return false
 		})
-		
-		
 
-		cy.url().should('include', '/main_code/main.html')
-
+		cy.url().should('include', '/main_code/settings.html')
     
   })
 })
@@ -622,7 +598,7 @@ describe('35) Navigation Bar Profile', () => {
   })
 })
 
-describe('36) Navigation Bar Settings', () => {
+describe('36) Navigation Bar Tracking', () => {
   it('On button click, should go to settings.html', () => {
     cy.visit('https://5500-cb1140-easypeasytracker-2kt6enmtrdb.ws-eu45.gitpod.io/main_code/settings.html')
 	Cypress.on('uncaught:exception', (err, runnable) => {
