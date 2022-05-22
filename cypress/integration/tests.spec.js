@@ -169,25 +169,7 @@ describe('9)Water Element Works', () => {
     
   })
 })
-describe('10) Footer Nav Works', () => {
-  it('checks button can be pushed', () => {
-    cy.visit('https://5500-cb1140-easypeasytracker-2kt6enmtrdb.ws-eu45.gitpod.io/main_code/main.html')
-	Cypress.on('uncaught:exception', (err, runnable) => {
-  // returning false here prevents Cypress from
-  // failing the test
-  // due to website being hosted on Gitpod ports
-  return false
-		})
-		
-				cy.contains('[id=nav-up]').click({force: true})
-				
-				
 
-	
-		
-    
-  })
-})
 
 describe('12) Edit Details view', () => {
   it('checks button can be pushed', () => {
@@ -578,7 +560,7 @@ describe('31) Navigation Bar Settings', () => {
 
 describe('32) Loading Test', () => {
   it('Check page loads in correctly', () => {
-    cy.visit('https://5500-cb1140-easypeasytracker-2kt6enmtrdb.ws-eu45.gitpod.io/main_code/setting.html')
+    cy.visit('https://5500-cb1140-easypeasytracker-2kt6enmtrdb.ws-eu45.gitpod.io/main_code/settings.html')
 	Cypress.on('uncaught:exception', (err, runnable) => {
   // returning false here prevents Cypress from
   // failing the test
@@ -596,7 +578,7 @@ describe('32) Loading Test', () => {
 
 describe('33) Navigation Bar Title', () => {
   it('On title click, should refresh page', () => {
-    cy.visit('https://5500-cb1140-easypeasytracker-2kt6enmtrdb.ws-eu45.gitpod.io/main_code/setting.html')
+    cy.visit('https://5500-cb1140-easypeasytracker-2kt6enmtrdb.ws-eu45.gitpod.io/main_code/settings.html')
 	Cypress.on('uncaught:exception', (err, runnable) => {
   // returning false here prevents Cypress from
   // failing the test
@@ -614,7 +596,7 @@ describe('33) Navigation Bar Title', () => {
 
 describe('34) Navigation Bar Home', () => {
   it('On home click, should refresh page', () => {
-    cy.visit('https://5500-cb1140-easypeasytracker-2kt6enmtrdb.ws-eu45.gitpod.io/main_code/setting.html')
+    cy.visit('https://5500-cb1140-easypeasytracker-2kt6enmtrdb.ws-eu45.gitpod.io/main_code/settings.html')
 	Cypress.on('uncaught:exception', (err, runnable) => {
   // returning false here prevents Cypress from
   // failing the test
@@ -632,7 +614,7 @@ describe('34) Navigation Bar Home', () => {
 
 describe('35) Navigation Bar Profile', () => {
   it('On button click, should go to Profile.html', () => {
-    cy.visit('https://5500-cb1140-easypeasytracker-2kt6enmtrdb.ws-eu45.gitpod.io/main_code/setting.html')
+    cy.visit('https://5500-cb1140-easypeasytracker-2kt6enmtrdb.ws-eu45.gitpod.io/main_code/settings.html')
 	Cypress.on('uncaught:exception', (err, runnable) => {
   // returning false here prevents Cypress from
   // failing the test
@@ -648,7 +630,7 @@ describe('35) Navigation Bar Profile', () => {
 
 describe('36) Navigation Bar Settings', () => {
   it('On button click, should go to settings.html', () => {
-    cy.visit('https://5500-cb1140-easypeasytracker-2kt6enmtrdb.ws-eu45.gitpod.io/main_code/setting.html')
+    cy.visit('https://5500-cb1140-easypeasytracker-2kt6enmtrdb.ws-eu45.gitpod.io/main_code/settings.html')
 	Cypress.on('uncaught:exception', (err, runnable) => {
   // returning false here prevents Cypress from
   // failing the test
@@ -664,7 +646,7 @@ describe('36) Navigation Bar Settings', () => {
 
 describe('37) Navigation Bar Settings', () => {
   it('On button click, should go to settings.html', () => {
-    cy.visit('https://5500-cb1140-easypeasytracker-2kt6enmtrdb.ws-eu45.gitpod.io/main_code/setting.html')
+    cy.visit('https://5500-cb1140-easypeasytracker-2kt6enmtrdb.ws-eu45.gitpod.io/main_code/settings.html')
 	Cypress.on('uncaught:exception', (err, runnable) => {
   // returning false here prevents Cypress from
   // failing the test

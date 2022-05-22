@@ -88,7 +88,7 @@ describe('5) Navigation Bar Tracking', () => {
 		})
 		
 		cy.contains('Tracking').click()
-		cy.url().should('include', '/main_code/tracks.html')
+		cy.url().should('include', '/main_code/track.html')
     
   })
 })
@@ -453,7 +453,7 @@ describe('24) Navigation Bar Settings', () => {
 		})
 		
 		cy.contains('Tracking').click()
-		cy.url().should('include', '/main_code/tracks.html')
+		cy.url().should('include', '/main_code/track.html')
     
   })
 })
@@ -555,7 +555,7 @@ describe('30) Navigation Bar Settings', () => {
 		})
 		
 		cy.contains('Tracking').click()
-		cy.url().should('include', '/main_code/tracks.html')
+		cy.url().should('include', '/main_code/track.html')
     
   })
 })
@@ -657,7 +657,7 @@ describe('36) Navigation Bar Settings', () => {
 		})
 		
 		cy.contains('Tracking').click()
-		cy.url().should('include', '/main_code/tracks.html')
+		cy.url().should('include', '/main_code/track.html')
     
   })
 })
