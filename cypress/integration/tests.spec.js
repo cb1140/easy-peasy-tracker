@@ -397,7 +397,7 @@ describe('23) Navigation Bar Profile', () => {
 })
 
 describe('24) Navigation Bar Settings', () => {
-  it('On button click, should go to settings.html', () => {
+  it('On button click, should go to track.html', () => {
     cy.visit('https://5500-cb1140-easypeasytracker-2kt6enmtrdb.ws-eu45.gitpod.io/main_code/profile.html')
 	Cypress.on('uncaught:exception', (err, runnable) => {
   // returning false here prevents Cypress from
@@ -406,7 +406,7 @@ describe('24) Navigation Bar Settings', () => {
   return false
 		})
 		
-		cy.contains('Tracking').click()
+		cy.contains('Track').click()
 		cy.url().should('include', '/main_code/track.html')
     
   })
@@ -498,7 +498,7 @@ describe('29) Navigation Bar Profile', () => {
   })
 })
 
-describe('30) Navigation Bar Settings', () => {
+describe('30) Navigation Bar Track', () => {
   it('On button click, should go to settings.html', () => {
     cy.visit('https://5500-cb1140-easypeasytracker-2kt6enmtrdb.ws-eu45.gitpod.io/main_code/track.html')
 	Cypress.on('uncaught:exception', (err, runnable) => {
@@ -508,7 +508,7 @@ describe('30) Navigation Bar Settings', () => {
   return false
 		})
 		
-		cy.contains('Tracking').click()
+		cy.contains('Track').click()
 		cy.url().should('include', '/main_code/track.html')
     
   })
