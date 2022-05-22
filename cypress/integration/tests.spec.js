@@ -1,13 +1,4 @@
-// tests.spec.js created with Cypress
-//
-// Start writing your Cypress tests below!
-// If you're unfamiliar with how Cypress works,
-// check out the link below and learn how to write your first test:
-// https://on.cypress.io/writing-first-test
-
-
-
- describe('1) Loading Test', () => {
+describe('1) Loading Test', () => {
   it('Check page loads in correctly', () => {
     cy.visit('https://5500-cb1140-easypeasytracker-2kt6enmtrdb.ws-eu45.gitpod.io/main_code/main.html')
 	Cypress.on('uncaught:exception', (err, runnable) => {
@@ -16,10 +7,10 @@
   // due to website being hosted on Gitpod ports
   return false
 		})
-		
-		
 
-		cy.url().should('include', '/main_code/main.html')
+
+		cy.url().should('include', '/main_code/main.html') 
+	        // checking URL path
 
     
   })
@@ -36,8 +27,10 @@ describe('2) Navigation Bar Title', () => {
 		})
 		
 		cy.contains('Easy Peasy Tracker').click()
+	        // clicking element
 
 		cy.url().should('include', '/main_code/main.html')
+	      // checking URL path
 
     
   })
@@ -139,6 +132,7 @@ describe('8)Water Element Works', () => {
 		})
 		
 				cy.contains('Add').click({force: true})
+	  				//must force true as element hides button
 				cy.get('[class=water-card-text]').contains('0')
 				
 
