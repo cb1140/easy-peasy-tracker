@@ -1,6 +1,11 @@
 {
+<<<<<<< HEAD
 	
 	
 	"projectId": "hbbm8m"
-  // The rest of the Cypress config options go here...
+  
 }
+=======
+  "projectId": "hbbm8m"
+}
+>>>>>>> 7947e899459d49f6b05768ea7cd53997ac8550c4
