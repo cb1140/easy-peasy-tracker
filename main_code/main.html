@@ -148,7 +148,7 @@ document.body.removeChild(element);
               <a href="profile.html" class="nav-link">Profile</a>
             </li>
             <li class="nav-item">
-              <a href="track.html" class="nav-link">Tracks</a>
+              <a href="track.html" class="nav-link">Track</a>
             </li>
             <li class="nav-item">
               <a href="settings.html" class="nav-link">Settings</a>
@@ -170,7 +170,7 @@ document.body.removeChild(element);
             <h1 id="name-display"></h1> 
             <p>Click below to get started with your profile!</p>
             <br>
-              <a href="profile.html" class="btn btn-primary">Let's go!</a>
+              <a href="profile.html" id="profile-shortcut" class="btn btn-primary">Let's go!</a>
             <br>
             <br>
             <br>
@@ -195,13 +195,13 @@ document.body.removeChild(element);
 
                 <!-- Water CARD -->
                 <h3 class="card-title mb-3">Water</h3>
-                <p class="card-text">
-                  You've drunk <a id="clicks"></a>ml today! That's <a id="drinks">0</a> glasses of water.
+                <p class="water-card-text">
+                  You've drunk <a id="clicks">0</a>ml today! That's <a id="drinks">0</a> glasses of water.
                 </p>
                 <br>
-                <button class="btn btn-secondary btn-sm" onClick="onClickSub()">&#x2796;</button>
+                <button class="btn btn-secondary btn-sm" id="add-water"onClick="onClickSub()">Add &#x2796;</button>
                 
-        	      <button class="btn btn-secondary btn-sm" onClick="onClickAdd()">&#x2795;</button>
+        	      <button class="btn btn-secondary btn-sm" id="take-water"onClick="onClickAdd()">Take &#x2795;</button>
               </div>
             </div>
           </div>
@@ -383,7 +383,7 @@ document.body.removeChild(element);
         <p class="lead">  <p>&#128679; <b>This is an under construction prototype!</b> &#128679;</p>
       </p>
 
-        <a href="#" class="position-absolute bottom-0 end-0 p-5">
+        <a href="#" id="nav-up"class="position-absolute bottom-0 end-0 p-5">
           <i class="bi bi-arrow-up h1"></i>
         </a>
       </div>
