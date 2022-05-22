@@ -1,4 +1,6 @@
 {
-  "projectId": "hbbm8m"
+	
+	
+	"projectId": "hbbm8m"
   // The rest of the Cypress config options go here...
-}{}
+}
